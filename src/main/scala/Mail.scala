@@ -9,6 +9,7 @@ import org.codemonkey.simplejavamail.{Email, Mailer}
 import play.modules.mail.MailBuilder.Mail
 import play.modules.mail.MailWorker.Start
 import play.api.Play.current
+import org.apache.commons.lang.builder.ReflectionToStringBuilder
 
 /**
  * User: alabbe
@@ -39,7 +40,7 @@ object MailPlugin {
 
    def send(email:Mail)(implicit app:Application):Promise[Boolean] = {
       app.configuration.getString("mail.smtp") match {
-         case Some(s) if (s.equalsIgnoreCase("dev")) => Mock.send()
+         case Some(s) if (s.equalsIgnoreCase("dev")) => Mock.send(email.toEmail)
          case _ => {
             sendMessage(email.toEmail)
          }
@@ -63,8 +64,6 @@ private[mail] case class MailHelper(host:String=MailPlugin.DEFAULT_HOST, port:In
 }
 
 object Mock {
-   def send():Promise[Boolean] = {
-      Akka.future[Boolean](true)
-   }
+   def send(email: Email) = Akka.future(true)
 }
 
