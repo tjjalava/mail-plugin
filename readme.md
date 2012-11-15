@@ -29,20 +29,23 @@ Add a play.plugins file in your conf directory with :
 
 Then in your controller, you can do :
 
-        import play.modules.mail._
         import play.modules.mail.MailBuilder._
         import play.api.Play.current
 
         def sendMail = Action { request =>
-            val m = Mail()
-                .withFrom("sender", "sender@example.com")
-                .withTo(To("receiver", "receiver@example.com"))
-                .withSubject("some subject")
-                .withText("!@#$")
-                .withAttachments(Attachment("readme", Source.fromFile("README.md"), "text/plain")))
-            MailPlugin.send(m)
+            Mail()
+                .from("sender", "sender@example.com")
+                .to("receiver", "receiver@example.com")
+                .withSubject("A subject")
+                .withText("body")
+                .withAttachments(
+                    Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get)
+                ).send
             Ok("It works")
         }
+
+Mail class utilizes statically typed builder pattern, so `send()` method is not available before sender, receiver,
+subject and message body (either text or html) is set.
 
 Configuration
 =============
