@@ -35,10 +35,11 @@ Then in your controller, you can do :
 
         def sendMail = Action { request =>
             val m = Mail()
-                        .from("Bibi","no-reply@bibi.com")
-                        .to(List(("Toto","toto@bibi.com",To())))
-                        .subject("A subject")
-                        .html(views.html.mail())
+                .withFrom("sender", "sender@example.com")
+                .withTo(To("receiver", "receiver@example.com"))
+                .withSubject("some subject")
+                .withText("!@#$")
+                .withAttachments(Attachment("readme", Source.fromFile("README.md"), "text/plain")))
             MailPlugin.send(m)
             Ok("It works")
         }
