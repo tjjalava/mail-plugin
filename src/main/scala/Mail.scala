@@ -3,10 +3,8 @@ package play.modules.mail
 
 import play.api._
 import play.api.libs.concurrent._
-import play.api.libs.concurrent.Akka._
 import akka.pattern.ask
 import akka.util.Duration
-import java.util.concurrent.Callable
 import org.codemonkey.simplejavamail.{Email, Mailer}
 import play.modules.mail.MailBuilder.Mail
 import play.modules.mail.MailWorker.Start
@@ -22,7 +20,7 @@ class MailPlugin(app:Application) extends Plugin {
 
   lazy val helper = MailHelper(
     app.configuration.getString("smtp.host").getOrElse(MailPlugin.DEFAULT_HOST),
-    app.configuration.getInt("smtp.port").getOrElse(MailPlugin.DEFAULT_PORT).toInt,
+    app.configuration.getInt("smtp.port").getOrElse(MailPlugin.DEFAULT_PORT),
     app.configuration.getString("smtp.username").getOrElse(""),
     app.configuration.getString("smtp.password").getOrElse("")
   )

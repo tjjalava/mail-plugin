@@ -1,4 +1,3 @@
-import javax.mail.Message.RecipientType
 import org.specs2.mutable._
 import play.api.test._
 import play.api.test.Helpers._
@@ -19,10 +18,10 @@ class MailSpec extends Specification {
             import play.api.Play.current
 
             val m = Mail()
-                  .from("Bibi","no-reply@bibi.com")
-                  .to(List(("Toto","toto@bibi.com",To())))
-                  .subject("A subject")
-                  .text("body")
+                  .withFrom("Bibi","no-reply@bibi.com")
+                  .withTo(To("Toto","toto@bibi.com"))
+                  .withSubject("A subject")
+                  .withText("body")
 
             MailPlugin.send(m).map(r => println("Mail sent ? "+r))
 
