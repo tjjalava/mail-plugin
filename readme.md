@@ -6,8 +6,9 @@ Installation
 As a binary
 -----------
 
-Checkout the project, build it from the sources with `sbt package` command.
-Put the jar available in target/scala-2.9.1 to the lib folder of your play app.
+Checkout the project, build it from the sources with `sbt package` command. Then either:
+* put the jar available in `target/scala-2.9.1` to the lib folder of your play app
+* publish it localy with `sbt publish-local` and add `"play.modules.mail" %% "play2-mail-plugin" % "0.1-SNAPSHOT"` to your build settings.
 
 As a Git submodule
 ------------------
