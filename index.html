@@ -1,0 +1,101 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Mail-plugin by mcveat</title>
+
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>Mail-plugin</h1>
+        <p>Play Framework 2 mail plugin</p>
+
+        <p class="view"><a href="https://github.com/mcveat/mail-plugin">View the Project on GitHub <small>mcveat/mail-plugin</small></a></p>
+
+
+        <ul>
+          <li><a href="https://github.com/mcveat/mail-plugin/zipball/master">Download <strong>ZIP File</strong></a></li>
+          <li><a href="https://github.com/mcveat/mail-plugin/tarball/master">Download <strong>TAR Ball</strong></a></li>
+          <li><a href="https://github.com/mcveat/mail-plugin">View On <strong>GitHub</strong></a></li>
+        </ul>
+      </header>
+      <section>
+        <p>A Play 2.0 plugin providing a scala wrapper to simple-java-mail.</p>
+
+<h1>Installation</h1>
+
+<h2>As a binary</h2>
+
+<p>Checkout the project, build it from the sources with <code>sbt package</code> command. Then either:</p>
+
+<ul>
+<li>put the jar available in <code>target/scala-2.9.1</code> to the lib folder of your play app</li>
+<li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.1-SNAPSHOT"</code> to your build settings.</li>
+</ul><h2>As a Git submodule</h2>
+
+<p>You can add it as a submodule of your play project.
+Checkout the project in modules/mail-plugin, then do <code>git submodule add</code></p>
+
+<p>In your project Build.scala add the dependency to the plugin :</p>
+
+<pre><code>    val mailPlugin = Project("mailPlugin", file("modules/mail-plugin"))
+    val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA)
+                .dependsOn(mailPlugin)
+</code></pre>
+
+<h1>Usage</h1>
+
+<p>Add a play.plugins file in your conf directory with :
+        400:play.modules.mail.MailPlugin</p>
+
+<p>Then in your controller, you can do :</p>
+
+<pre><code>    import play.modules.mail.MailBuilder._
+
+    def sendMail = Action { request =&gt;
+        Mail()
+            .from("sender", "sender@example.com")
+            .to("receiver", "receiver@example.com")
+            .withSubject("A subject")
+            .withText("body")
+            .withAttachments(
+                Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get)
+            ).send
+        Ok("It works")
+    }
+</code></pre>
+
+<p>Mail class utilizes statically typed builder pattern, so <code>send()</code> method is not available before sender, receiver,
+subject and message body (either text or html) is set.</p>
+
+<h1>Configuration</h1>
+
+<p>In application.conf :</p>
+
+<pre><code>    #put this setting in you want to mock the mail server in development
+    mail.mock=true
+
+    #smtp server settings
+    smtp.host=smtp.server.com
+    smtp.port=25
+    smtp.username=
+    smtp.password=
+</code></pre>
+      </section>
+      <footer>
+        <p>This project is maintained by <a href="https://github.com/mcveat">mcveat</a></p>
+        <p><small>Hosted on GitHub Pages &mdash; Theme by <a href="https://github.com/orderedlist">orderedlist</a></small></p>
+      </footer>
+    </div>
+    <script src="javascripts/scale.fix.js"></script>
+    
+  </body>
+</html>
