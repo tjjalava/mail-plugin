@@ -14,6 +14,7 @@ class MailPlugin(app:Application) extends Plugin {
   private[mail] val DEFAULT_HOST = "localhost"
   private[mail] val DEFAULT_PORT = 25
 
+  lazy val mock = app.configuration.getBoolean("mail.mock") getOrElse false
   lazy val host = app.configuration.getString("smtp.host") getOrElse DEFAULT_HOST
   lazy val port = app.configuration.getInt("smtp.port") getOrElse DEFAULT_PORT
   lazy val username = app.configuration.getString("smtp.username") getOrElse ""
@@ -29,7 +30,13 @@ class MailPlugin(app:Application) extends Plugin {
 
   override def onStart() {
     Logger.debug("Mail plugin starting... ")
-    MailActor.startWith(mailer)
-    Logger.info("Mail plugin successfully started with smtp server on %s:%s".format(host, port))
+    if (mock) {
+      MailActor.startWithMock
+      Logger.info("Mail plugin successfully started using mocked mailer")
+    }
+    else {
+      MailActor.startWith(mailer)
+      Logger.info("Mail plugin successfully started with smtp server on %s:%s".format(host, port))
+    }
   }
 }

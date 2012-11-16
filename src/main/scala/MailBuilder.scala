@@ -39,14 +39,9 @@ object MailBuilder {
   }
 
   implicit def enableSending(mail: Mail[SET, SET, SET, SET]) = new {
-    def send(implicit app: Application) = {
-      app.configuration.getString("mail.smtp") match {
-        case Some(s) if (s.equalsIgnoreCase("dev")) => Akka.future(true)
-        case _ => {
-          implicit val timeout: Timeout = Duration(5, "seconds")
-          (MailActor.get ? (toEmail)).mapTo[Boolean].asPromise   //FIX-ME, switch to fire and forget
-        }
-      }
+    def send = {
+      implicit val timeout: Timeout = Duration(5, "seconds")
+      (MailActor.get ? (toEmail)).mapTo[Boolean].asPromise   //FIX-ME, switch to fire and forget
     }
     private def toEmail = {
       val e = new Email()

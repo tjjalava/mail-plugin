@@ -7,13 +7,15 @@ import org.codemonkey.simplejavamail.{MailException, Email, Mailer}
 import play.api.Play.current
 
 object MailActor {
-  def startWith(mailer: Mailer) = Akka.system.actorOf(Props(new MailActor(mailer)), name="mailer")
-  def get = Akka.system.actorFor("/user/mailer")
+  val actorName: String = "mailer"
+  def startWith(mailer: Mailer) = Akka.system.actorOf(Props(new MailActor(mailer)), name = actorName)
+  def startWithMock = Akka.system.actorOf(Props(new MailActorMock()), name = actorName)
+  def get = Akka.system.actorFor("/user/%s".format(actorName))
 }
 
 class MailActor(mailer: Mailer) extends Actor {
    def receive = {
-      case email:Email => {
+      case email: Email => {
          try {
             mailer.sendMail(email)
             Logger.debug("MailPlugin: email sent")
@@ -26,6 +28,15 @@ class MailActor(mailer: Mailer) extends Actor {
          }
       }
    }
+}
+
+class MailActorMock extends Actor {
+  def receive = {
+    case email: Email => {
+      Logger.debug("MailPlugin: email sent to mock")
+      sender ! true
+    }
+  }
 }
 
 

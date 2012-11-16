@@ -12,21 +12,15 @@ import play.modules.mail.MailBuilder._
 class MailSpec extends Specification {
   "Mail" should {
     "send dummy email using mock" in {
-      implicit val application = FakeApplication(
-        additionalConfiguration = Map(
-          "mail.smtp" -> "dev"
-        )
-      )
-      running(application) {
+      running(FakeApplication(additionalConfiguration = Map("mail.mock" -> "true"))) {
         val attachment = Source.fromBytes("Ninja should wear black".toCharArray.map(_.toByte))
-        val m = Mail()
+
+        Mail()
           .from("sender", "sender@example.com")
           .to("receiver", "receiver@example.com")
           .withSubject("A subject")
           .withText("body")
-          .withAttachments(Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get))
-
-        m.send.map(r => println("Mail sent ? "+r))
+          .withAttachments(Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get)).send
 
         success
       }
