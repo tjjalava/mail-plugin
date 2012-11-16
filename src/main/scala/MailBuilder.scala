@@ -44,7 +44,7 @@ object MailBuilder {
         case Some(s) if (s.equalsIgnoreCase("dev")) => Akka.future(true)
         case _ => {
           implicit val timeout: Timeout = Duration(5, "seconds")
-          (MailPlugin.worker ? (toEmail)).mapTo[Boolean].asPromise   //FIX-ME, switch to fire and forget
+          (MailActor.get ? (toEmail)).mapTo[Boolean].asPromise   //FIX-ME, switch to fire and forget
         }
       }
     }

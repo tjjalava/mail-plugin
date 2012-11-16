@@ -4,23 +4,19 @@ import play.api.Logger
 import play.api.libs.concurrent._
 import akka.actor.{Actor, Props}
 import org.codemonkey.simplejavamail.{MailException, Email, Mailer}
-import play.modules.mail.MailWorker.Start
 import play.api.Play.current
 
-object MailWorker {
-   sealed trait Event
-   case class Start(mailer:Mailer) extends Event
-   val ref = Akka.system.actorOf(Props[MailWorker])
+object MailActor {
+  def startWith(mailer: Mailer) = Akka.system.actorOf(Props(new MailActor(mailer)), name="mailer")
+  def get = Akka.system.actorFor("/user/mailer")
 }
 
-class MailWorker extends Actor {
-   var mailer:Mailer = null
+class MailActor(mailer: Mailer) extends Actor {
    def receive = {
-      case Start(mailer:Mailer) => this.mailer = mailer
       case email:Email => {
          try {
             mailer.sendMail(email)
-            Logger.info("MailPlugin: email sent")
+            Logger.debug("MailPlugin: email sent")
             sender ! true
          } catch {
             case e:MailException => {
