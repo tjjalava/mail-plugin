@@ -30,7 +30,6 @@ Add a play.plugins file in your conf directory with :
 Then in your controller, you can do :
 
         import play.modules.mail.MailBuilder._
-        import play.api.Play.current
 
         def sendMail = Action { request =>
             Mail()
@@ -52,7 +51,7 @@ Configuration
 In application.conf :
 
         #put this setting in you want to mock the mail server in development
-        mail.smtp=dev
+        mail.mock=true
 
         #smtp server settings
         smtp.host=smtp.server.com
