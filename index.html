@@ -35,13 +35,22 @@
 
 <h2>Installation</h2>
 
+<h3>As ivy artifact</h3>
+<p>To your <code>Build.scala</code> add:</p>
+
+<pre><code>   resolvers += (
+        Resolver.url("mcveat.github.com", url("http://mcveat.github.com/releases"))(Resolver.ivyStylePatterns)
+    )</code></pre>
+
+<p>and <code>"play.modules.mail" %% "play2-mail-plugin" % "0.1"</code> as a dependency.</p>
+
 <h3>As a binary</h3>
 
 <p>Checkout the project, build it from the sources with <code>sbt package</code> command. Then either:</p>
 
 <ul>
 <li>put the jar available in <code>target/scala-2.9.1</code> to the lib folder of your play app</li>
-<li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.1-SNAPSHOT"</code> to your build settings.</li>
+<li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.2-SNAPSHOT"</code> to your build settings.</li>
 </ul>
 
 <h3>As a Git submodule</h3>
