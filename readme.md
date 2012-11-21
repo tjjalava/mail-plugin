@@ -51,7 +51,7 @@ subject and message body (either text or html) is set.
 
 Configuration
 =============
-In application.conf :
+In `application.conf` :
 
         #put this setting in you want to mock the mail server in development
         mail.mock=true
