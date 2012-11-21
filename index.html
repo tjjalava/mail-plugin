@@ -30,18 +30,20 @@
 
       </header>
       <section>
-        <p>A Play 2.0 plugin providing a scala wrapper to simple-java-mail.</p>
+        <h1>A Play 2.0 plugin providing a scala wrapper to simple-java-mail</h1>
 
-<h1>Installation</h1>
+<h2>Installation</h2>
 
-<h2>As a binary</h2>
+<h3>As a binary</h3>
 
 <p>Checkout the project, build it from the sources with <code>sbt package</code> command. Then either:</p>
 
 <ul>
 <li>put the jar available in <code>target/scala-2.9.1</code> to the lib folder of your play app</li>
 <li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.1-SNAPSHOT"</code> to your build settings.</li>
-</ul><h2>As a Git submodule</h2>
+</ul>
+
+<h3>As a Git submodule</h3>
 
 <p>You can add it as a submodule of your play project.
 Checkout the project in modules/mail-plugin, then do <code>git submodule add</code></p>
@@ -53,7 +55,7 @@ Checkout the project in modules/mail-plugin, then do <code>git submodule add</co
                 .dependsOn(mailPlugin)
 </code></pre>
 
-<h1>Usage</h1>
+<h2>Usage</h2>
 
 <p>Add a play.plugins file in your conf directory with :</p>
 
@@ -81,7 +83,7 @@ Checkout the project in modules/mail-plugin, then do <code>git submodule add</co
 <p>Mail class utilizes statically typed builder pattern, so <code>send()</code> method is not available before sender, receiver,
 subject and message body (either text or html) is set.</p>
 
-<h1>Configuration</h1>
+<h2>Configuration</h2>
 
 <p>In <code>application.conf</code> :</p>
 
