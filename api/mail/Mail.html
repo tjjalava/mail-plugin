@@ -1,0 +1,552 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
+<html>
+        <head>
+          <title>mail.Mail</title>
+          <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+          
+      <link type="text/css" media="screen" rel="stylesheet" href="../lib/template.css" />
+      <script type="text/javascript" src="../lib/jquery.js"></script>
+      <script type="text/javascript" src="../lib/jquery-ui.js"></script>
+      <script type="text/javascript" src="../lib/template.js"></script>
+      <script type="text/javascript" src="../lib/tools.tooltip.js"></script>
+    
+        </head>
+        <body class="type">
+      <div id="definition">
+        <a title="Go to companion" href="Mail$.html"><img src="../lib/class_to_object_big.png" /></a>
+        <p id="owner"><a name="mail" class="extype" href="package.html">mail</a></p>
+        <h1><a title="Go to companion" href="Mail$.html">Mail</a></h1>
+      </div>
+
+      <h4 class="signature" id="signature">
+      <span class="kind">class</span>
+      <span class="symbol"> 
+        <span class="name">Mail</span>
+        <span class="tparams">[<span name="FROM">FROM</span>, <span name="TO">TO</span>, <span name="SUBJECT">SUBJECT</span>, <span name="BODY">BODY</span>]</span>
+        <span class="result"> extends AnyRef</span>
+      </span>
+      </h4>
+      
+          <div class="fullcommenttop" id="comment"><div class="comment cmt"><p>Mail instance builder</p><p>Utilizes statically typed builder pattern. Only instance with <code>from</code>, <code>to</code>, <code>subject</code>and <code>body</code>(either text or html)
+values set can be actually sent to <a name="mail.MailActor.MailActor" class="extype" href="MailActor$$MailActor.html">MailActor</a>.
+</p></div><div class="toggleContainer block">
+          <span class="toggle">Linear Supertypes</span>
+          <div class="superTypes hiddenContent">AnyRef, <span name="scala.Any" class="extype">Any</span></div>
+        </div></div>
+        
+
+      <div id="template">
+
+        <div id="mbrsel">
+          <div id="textfilter"><span class="pre"></span><span class="input"><input accesskey="/" type="text" /></span><span class="post"></span></div>
+          <div id="order">
+                <span class="filtertype">Ordering</span>
+                <ol><li class="alpha in"><span>Alphabetic</span></li><li class="inherit out"><span>By inheritance</span></li></ol>
+              </div>
+          <div id="ancestors">
+                <span class="filtertype">Inherited</span>
+                <ol><li class="hideall out"><span>Hide All</span></li>
+                <li class="showall in"><span>Show all</span></li></ol>
+                <ol id="linearization"><li name="mail.Mail" class="in"><span>Mail</span></li><li name="scala.AnyRef" class="in"><span>AnyRef</span></li><li name="scala.Any" class="in"><span>Any</span></li></ol>
+              </div>
+          <div id="visbl">
+              <span class="filtertype">Visibility</span>
+              <ol><li class="public in"><span>Public</span></li><li class="all out"><span>All</span></li></ol>
+            </div>
+        </div>
+
+        <div class="members" id="constructors">
+              <h3>Instance Constructors</h3>
+              <ol><li visbl="pub" name="mail.Mail#this" data-isabs="false">
+      <a id="this:Mail[FROM, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">new</span>
+      <span class="symbol"> 
+        <span class="name">Mail</span>
+        
+        <span class="params">(<span name="from">from: <span name="scala.Option" class="extype">Option</span>[(String, String)]</span>, <span name="subject">subject: <span name="scala.Option" class="extype">Option</span>[String]</span>, <span name="recipients">recipients: List[<a name="mail.Mail.Recipient" class="extype" href="Mail$$Recipient.html">Recipient</a>]</span>, <span name="text">text: <span name="scala.Option" class="extype">Option</span>[String]</span>, <span name="html">html: <span name="scala.Option" class="extype">Option</span>[<span name="play.api.templates.Html" class="extype">Html</span>]</span>, <span name="attachments">attachments: List[<a name="mail.Mail.Attachment" class="extype" href="Mail$$Attachment.html">Attachment</a>]</span>)</span>
+      </span>
+      </h4>
+      
+    </li></ol>
+            </div>
+
+        
+        
+        
+
+        <div class="values members" id="values">
+              <h3>Value Members</h3>
+              <ol><li visbl="pub" name="scala.AnyRef#!=" data-isabs="false">
+      <a id="!=(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#!=" data-isabs="false">
+      <a id="!=(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">!=</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef###" data-isabs="false">
+      <a id="##():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">##</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#==" data-isabs="false">
+      <a id="==(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#==" data-isabs="false">
+      <a id="==(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">==</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.Any#asInstanceOf" data-isabs="false">
+      <a id="asInstanceOf[T0]:T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">asInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#attachments" data-isabs="false">
+      <a id="attachments:List[Attachment]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">attachments</span>
+        
+        <span class="result">: List[<a name="mail.Mail.Attachment" class="extype" href="Mail$$Attachment.html">Attachment</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="mail.Mail#bcc" data-isabs="false">
+      <a id="bcc(String,String):Mail[FROM, SET, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">bcc</span>
+        
+        <span class="params">(<span name="name">name: String</span>, <span name="address">address: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with <code>BCC:</code> recipient appended</p>
+    </li><li visbl="pub" name="mail.Mail#cc" data-isabs="false">
+      <a id="cc(String,String):Mail[FROM, SET, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">cc</span>
+        
+        <span class="params">(<span name="name">name: String</span>, <span name="address">address: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with <code>CC:</code> recipient appended</p>
+    </li><li visbl="prt" name="scala.AnyRef#clone" data-isabs="false">
+      <a id="clone():AnyRef"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">clone</span>
+        
+        <span class="params">()</span><span class="result">: AnyRef</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#eq" data-isabs="false">
+      <a id="eq(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">eq</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#equals" data-isabs="false">
+      <a id="equals(Any):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">equals</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Any" class="extype">Any</span></span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="prt" name="scala.AnyRef#finalize" data-isabs="false">
+      <a id="finalize():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">finalize</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>protected[<a name="java.lang" class="extype" href="../java/lang/package.html">lang</a>] </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#from" data-isabs="false">
+      <a id="from(String,String):Mail[SET, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">from</span>
+        
+        <span class="params">(<span name="name">name: String</span>, <span name="address">address: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[<a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, TO, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with from field set to given values</p>
+    </li><li visbl="pub" name="mail.Mail#from" data-isabs="false">
+      <a id="from((String, String)):Mail[SET, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">from</span>
+        
+        <span class="params">(<span name="f">f: (String, String)</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[<a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, TO, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with from field set to given tuple (with <code>(name, address)</code> fields)</p>
+    </li><li visbl="pub" name="mail.Mail#from" data-isabs="false">
+      <a id="from:Option[(String, String)]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">from</span>
+        
+        <span class="result">: <span name="scala.Option" class="extype">Option</span>[(String, String)]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#getClass" data-isabs="false">
+      <a id="getClass():java.lang.Class[_]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">getClass</span>
+        
+        <span class="params">()</span><span class="result">: java.lang.Class[_]</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#hashCode" data-isabs="false">
+      <a id="hashCode():Int"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">hashCode</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Int" class="extype">Int</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#html" data-isabs="false">
+      <a id="html:Option[Html]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">html</span>
+        
+        <span class="result">: <span name="scala.Option" class="extype">Option</span>[<span name="play.api.templates.Html" class="extype">Html</span>]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.Any#isInstanceOf" data-isabs="false">
+      <a id="isInstanceOf[T0]:Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">isInstanceOf</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#ne" data-isabs="false">
+      <a id="ne(AnyRef):Boolean"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">ne</span>
+        
+        <span class="params">(<span name="arg0">arg0: AnyRef</span>)</span><span class="result">: <span name="scala.Boolean" class="extype">Boolean</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notify" data-isabs="false">
+      <a id="notify():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notify</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#notifyAll" data-isabs="false">
+      <a id="notifyAll():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">notifyAll</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#recipients" data-isabs="false">
+      <a id="recipients:List[Recipient]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">recipients</span>
+        
+        <span class="result">: List[<a name="mail.Mail.Recipient" class="extype" href="Mail$$Recipient.html">Recipient</a>]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="mail.Mail#subject" data-isabs="false">
+      <a id="subject:Option[String]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">subject</span>
+        
+        <span class="result">: <span name="scala.Option" class="extype">Option</span>[String]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="scala.AnyRef#synchronized" data-isabs="false">
+      <a id="synchronized[T0](⇒ T0):T0"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">synchronized</span>
+        <span class="tparams">[<span name="T0">T0</span>]</span>
+        <span class="params">(<span name="arg0">arg0: ⇒ T0</span>)</span><span class="result">: T0</span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#text" data-isabs="false">
+      <a id="text:Option[String]"></a>
+      <h4 class="signature">
+      <span class="kind">val</span>
+      <span class="symbol"> 
+        <span class="name">text</span>
+        
+        <span class="result">: <span name="scala.Option" class="extype">Option</span>[String]</span>
+      </span>
+      </h4>
+      
+    </li><li visbl="pub" name="mail.Mail#to" data-isabs="false">
+      <a id="to(String,String):Mail[FROM, SET, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">to</span>
+        
+        <span class="params">(<span name="name">name: String</span>, <span name="address">address: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with <code>TO:</code> recipient appended</p>
+    </li><li visbl="pub" name="scala.AnyRef#toString" data-isabs="false">
+      <a id="toString():String"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">toString</span>
+        
+        <span class="params">()</span><span class="result">: <span name="java.lang.String" class="extype">String</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Definition Classes</dt><dd>AnyRef → Any</dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait():Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">()</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long,Int):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>, <span name="arg1">arg1: <span name="scala.Int" class="extype">Int</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="scala.AnyRef#wait" data-isabs="false">
+      <a id="wait(Long):Unit"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">wait</span>
+        
+        <span class="params">(<span name="arg0">arg0: <span name="scala.Long" class="extype">Long</span></span>)</span><span class="result">: <span name="scala.Unit" class="extype">Unit</span></span>
+      </span>
+      </h4>
+      <div class="fullcomment"><dl class="attributes block"> <dt>Attributes</dt><dd>final </dd><dt>Definition Classes</dt><dd>AnyRef</dd><dt>Annotations</dt><dd>
+                <span class="name">@throws</span><span class="args">()</span>
+              
+        </dd></dl></div>
+    </li><li visbl="pub" name="mail.Mail#withAttachment" data-isabs="false">
+      <a id="withAttachment(String,Source,String):Mail[FROM, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withAttachment</span>
+        
+        <span class="params">(<span name="name">name: String</span>, <span name="data">data: <span name="scala.io.Source" class="extype">Source</span></span>, <span name="mimeType">mimeType: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with attachment appended to attachments list</p>
+    </li><li visbl="pub" name="mail.Mail#withAttachments" data-isabs="false">
+      <a id="withAttachments(Attachment,Attachment*):Mail[FROM, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withAttachments</span>
+        
+        <span class="params">(<span name="a_x">a_x: <a name="mail.Mail.Attachment" class="extype" href="Mail$$Attachment.html">Attachment</a></span>, <span name="a_xs">a_xs: <a name="mail.Mail.Attachment" class="extype" href="Mail$$Attachment.html">Attachment</a>*</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with attachments list replaced with given attachments.</p>
+    </li><li visbl="pub" name="mail.Mail#withAttachments" data-isabs="false">
+      <a id="withAttachments(List[Attachment]):Mail[FROM, TO, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withAttachments</span>
+        
+        <span class="params">(<span name="a">a: List[<a name="mail.Mail.Attachment" class="extype" href="Mail$$Attachment.html">Attachment</a>]</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with attachments list replaced with given attachments.</p>
+    </li><li visbl="pub" name="mail.Mail#withHtml" data-isabs="false">
+      <a id="withHtml(Html):Mail[FROM, TO, SUBJECT, SET]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withHtml</span>
+        
+        <span class="params">(<span name="h">h: <span name="play.api.templates.Html" class="extype">Html</span></span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, SUBJECT, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with html body set to given value</p>
+    </li><li visbl="pub" name="mail.Mail#withRecipients" data-isabs="false">
+      <a id="withRecipients(Recipient,Recipient*):Mail[FROM, SET, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withRecipients</span>
+        
+        <span class="params">(<span name="to_x">to_x: <a name="mail.Mail.Recipient" class="extype" href="Mail$$Recipient.html">Recipient</a></span>, <span name="to_xs">to_xs: <a name="mail.Mail.Recipient" class="extype" href="Mail$$Recipient.html">Recipient</a>*</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with recipients list replaced with given recipients.</p>
+    </li><li visbl="pub" name="mail.Mail#withRecipients" data-isabs="false">
+      <a id="withRecipients(List[Recipient]):Mail[FROM, SET, SUBJECT, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withRecipients</span>
+        
+        <span class="params">(<span name="r">r: List[<a name="mail.Mail.Recipient" class="extype" href="Mail$$Recipient.html">Recipient</a>]</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, SUBJECT, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with recipients list replaced with given list.</p>
+    </li><li visbl="pub" name="mail.Mail#withSubject" data-isabs="false">
+      <a id="withSubject(String):Mail[FROM, TO, SET, BODY]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withSubject</span>
+        
+        <span class="params">(<span name="s">s: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>, BODY]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with subject set to given value</p>
+    </li><li visbl="pub" name="mail.Mail#withText" data-isabs="false">
+      <a id="withText(String):Mail[FROM, TO, SUBJECT, SET]"></a>
+      <h4 class="signature">
+      <span class="kind">def</span>
+      <span class="symbol"> 
+        <span class="name">withText</span>
+        
+        <span class="params">(<span name="t">t: String</span>)</span><span class="result">: <a name="mail.Mail" class="extype" href="">Mail</a>[FROM, TO, SUBJECT, <a name="mail.Mail.SET" class="extype" href="Mail$$SET.html">SET</a>]</span>
+      </span>
+      </h4>
+      <p class="shortcomment cmt">Returns new instance with text body set to given value</p>
+    </li></ol>
+            </div>
+
+        
+
+        <div name="scala.AnyRef" class="parent">
+              <h3>Inherited from AnyRef</h3>
+            </div><div name="scala.Any" class="parent">
+              <h3>Inherited from <span name="scala.Any" class="extype">Any</span></h3>
+            </div>
+
+      </div>
+      
+      <div id="tooltip"></div>
+      
+    </body>
+      </html>
