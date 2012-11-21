@@ -1,14 +1,26 @@
-A Play 2.0 plugin providing a scala wrapper to simple-java-mail.
+A Play 2.0 plugin providing a scala wrapper to simple-java-mail
+===============================================================
 
 Installation
 ============
+
+As ivy artifact
+---------------
+
+To your `Build.scala` add:
+
+    resolvers += (
+        Resolver.url("mcveat.github.com", url("http://mcveat.github.com/releases"))(Resolver.ivyStylePatterns)
+    )
+
+and `play.modules.mail" %% "play2-mail-plugin" % "0.1` as a dependency.
 
 As a binary
 -----------
 
 Checkout the project, build it from the sources with `sbt package` command. Then either:
 * put the jar available in `target/scala-2.9.1` to the lib folder of your play app
-* publish it localy with `sbt publish-local` and add `"play.modules.mail" %% "play2-mail-plugin" % "0.1-SNAPSHOT"` to your build settings.
+* publish it localy with `sbt publish-local` and add `"play.modules.mail" %% "play2-mail-plugin" % "0.2-SNAPSHOT"` to your build settings.
 
 As a Git submodule
 ------------------
