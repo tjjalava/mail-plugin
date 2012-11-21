@@ -26,6 +26,7 @@ Usage
 =====
 
 Add a play.plugins file in your conf directory with :
+
         400:mail.MailPlugin
 
 Then in your controller, you can do :
