@@ -26,21 +26,22 @@ Usage
 =====
 
 Add a play.plugins file in your conf directory with :
-        400:play.modules.mail.MailPlugin
+        400:mail.MailPlugin
 
 Then in your controller, you can do :
 
-        import play.modules.mail.MailBuilder._
+        import mail._
+        import Mail._
 
         def sendMail = Action { request =>
+            val attachment = Source.fromBytes("Ninja should wear black".toCharArray.map(_.toByte))
             Mail()
                 .from("sender", "sender@example.com")
                 .to("receiver", "receiver@example.com")
                 .withSubject("A subject")
                 .withText("body")
-                .withAttachments(
-                    Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get)
-                ).send
+                .withAttachments(Attachment("ninja code", attachment, "text/plain")
+                .send()
             Ok("It works")
         }
 
