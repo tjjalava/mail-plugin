@@ -149,6 +149,12 @@ img {
   border: 1px solid #ccc;
 }
 
+.header img {
+  border: none;
+  padding: 0px;
+  margin: 0px;
+}
+
 
 /* Code blocks */
 
@@ -207,7 +213,7 @@ td {
 header {
 	background-color: #171717;
 	color: #FDFDFB;
-  width:170px;
+  width:180px;
   float:left;
   position:fixed;
 	border: 1px solid #000;
@@ -224,6 +230,10 @@ header {
 
 p.header {
 	font-size: 16px;
+}
+
+p.header.build-status {
+  margin-bottom: 0px;
 }
 
 h1.header {
@@ -251,6 +261,7 @@ a.name {
 header ul {
   list-style:none;
   padding:0;
+  margin-bottom: 0px;
 }
 
 header li {
