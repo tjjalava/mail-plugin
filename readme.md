@@ -1,6 +1,8 @@
 A Play 2.0 plugin providing a scala wrapper to simple-java-mail
 ===============================================================
 
+Build status: [![Build Status](https://secure.travis-ci.org/mcveat/mail-plugin.png?branch=master)](https://travis-ci.org/mcveat/mail-plugin)
+
 Installation
 ============
 
