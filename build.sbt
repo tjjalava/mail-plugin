@@ -10,7 +10,8 @@ resolvers += "Typesafe repository releases" at "http://repo.typesafe.com/typesaf
 
 libraryDependencies ++= Seq(
   "org.codemonkey.simplejavamail" % "simple-java-mail" % "2.0",
-  "play" %% "play" % "2.0.3" % "provided",
-  "play" %% "play-test" % "2.0.3" % "test",
+  "play" %% "play" % "2.0.3",
+  "play" %% "play-test" % "2.0.3",
   "org.specs2" %% "specs2" % "1.7.1" % "test",
+  "junit" % "junit" % "4.8" % "test"
 )
