@@ -15,14 +15,14 @@ To your `Build.scala` add:
         Resolver.url("mcveat.github.com", url("http://mcveat.github.com/releases"))(Resolver.ivyStylePatterns)
     )
 
-and `"play.modules.mail" %% "play2-mail-plugin" % "0.1"` as a dependency.
+and `"play.modules.mail" %% "play2-mail-plugin" % "0.2"` as a dependency.
 
 As a binary
 -----------
 
 Checkout the project, build it from the sources with `sbt package` command. Then either:
 * put the jar available in `target/scala-2.9.1` to the lib folder of your play app
-* publish it localy with `sbt publish-local` and add `"play.modules.mail" %% "play2-mail-plugin" % "0.2-SNAPSHOT"` to your build settings.
+* publish it localy with `sbt publish-local` and add `"play.modules.mail" %% "play2-mail-plugin" % "0.3-SNAPSHOT"` to your build settings.
 
 As a Git submodule
 ------------------
@@ -53,6 +53,7 @@ Then in your controller, you can do :
             Mail()
                 .from("sender", "sender@example.com")
                 .to("receiver", "receiver@example.com")
+                .replyTo("ninja master", "master@ninja.com")
                 .withSubject("A subject")
                 .withText("body")
                 .withAttachments(Attachment("ninja code", attachment, "text/plain")

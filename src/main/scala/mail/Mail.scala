@@ -16,7 +16,10 @@ object Mail {
       val e = new Email()
       mail.from.map { case (name, address) => e.setFromAddress(name, address) }
       e.setSubject(mail.subject.get)
-      mail.recipients.foreach(r => e.addRecipient(r.name, r.address, r.rType))
+      mail.recipients.foreach {
+        case ReplyTo(name, address) => e.setReplyToAddress(name, address)
+        case r: TypedRecipient => e.addRecipient(r.name, r.address, r.rType)
+      }
       mail.text.map(e.setText(_))
       mail.html.map(h => e.setTextHTML(h.toString()))
       mail.attachments.foreach(a => e.addAttachment(a.name, a.data.map(_.toByte).toArray, a.mimeType))
@@ -26,13 +29,15 @@ object Mail {
 
   case class Attachment(name: String, data: Source, mimeType: String)
 
-  abstract class Recipient(val rType: RecipientType) {
+  abstract class Recipient {
     val name: String
     val address: String
   }
-  case class To(name: String, address: String) extends Recipient(RecipientType.TO)
-  case class Bcc(name: String, address: String) extends Recipient(RecipientType.BCC)
-  case class Cc(name: String, address: String) extends Recipient(RecipientType.CC)
+  abstract class TypedRecipient(val rType: RecipientType) extends Recipient
+  case class To(name: String, address: String) extends TypedRecipient(RecipientType.TO)
+  case class Bcc(name: String, address: String) extends TypedRecipient(RecipientType.BCC)
+  case class Cc(name: String, address: String) extends TypedRecipient(RecipientType.CC)
+  case class ReplyTo(name: String, address: String) extends Recipient
 
   /** marker class for statically typed builder pattern */
   abstract class UNSET
@@ -66,6 +71,8 @@ class Mail[FROM, TO, SUBJECT, BODY](val from: Option[(String, String)] = None, v
   def cc(name: String, address: String) = withRecipients(Cc(name, address) :: recipients)
   /** Returns new instance with `BCC:` recipient appended */
   def bcc(name: String, address: String) = withRecipients(Bcc(name, address) :: recipients)
+  /** Returns new instance with reply-to set to given value */
+  def replyTo(name: String, address: String) = withRecipients(ReplyTo(name, address) :: recipients)
   /** Returns new instance with subject set to given value */
   def withSubject(s: String) = new Mail[FROM, TO, SET, BODY](from, Some(s), recipients, text, html, attachments)
   /** Returns new instance with text body set to given value */

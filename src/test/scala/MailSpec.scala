@@ -14,6 +14,7 @@ class MailSpec extends Specification {
         Mail()
           .from("sender", "sender@example.com")
           .to("receiver", "receiver@example.com")
+          .replyTo("ninja master", "master@ninja.com")
           .withSubject("A subject")
           .withText("body")
           .withAttachments(Attachment("ninja code", attachment, MimeTypes.forExtension("txt").get))
