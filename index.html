@@ -23,7 +23,7 @@
           <li class="download"><a class="buttons" href="https://github.com/mcveat/mail-plugin/zipball/master">Download ZIP</a></li>
           <li class="download"><a class="buttons" href="https://github.com/mcveat/mail-plugin/tarball/master">Download TAR</a></li>
           <li><a class="buttons github" href="https://github.com/mcveat/mail-plugin">View On GitHub</a></li>
-          <li><a class="buttons github" href="api/0.1/index.html">API reference</a></li>
+          <li><a class="buttons github" href="api/0.2/index.html">API reference</a></li>
         </ul>
 
         <p class="header build-status"><a href="https://travis-ci.org/mcveat/mail-plugin"><img src="https://secure.travis-ci.org/mcveat/mail-plugin.png?branch=master"></a></p>
@@ -44,7 +44,7 @@
         Resolver.url("mcveat.github.com", url("http://mcveat.github.com/releases"))(Resolver.ivyStylePatterns)
     )</code></pre>
 
-<p>and <code>"play.modules.mail" %% "play2-mail-plugin" % "0.1"</code> as a dependency.</p>
+<p>and <code>"play.modules.mail" %% "play2-mail-plugin" % "0.2"</code> as a dependency.</p>
 
 <h3>As a binary</h3>
 
@@ -52,7 +52,7 @@
 
 <ul>
 <li>put the jar available in <code>target/scala-2.9.1</code> to the lib folder of your play app</li>
-<li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.2-SNAPSHOT"</code> to your build settings.</li>
+<li>publish it localy with <code>sbt publish-local</code> and add <code>"play.modules.mail" %% "play2-mail-plugin" % "0.3-SNAPSHOT"</code> to your build settings.</li>
 </ul>
 
 <h3>As a Git submodule</h3>
@@ -84,6 +84,7 @@ Checkout the project in modules/mail-plugin, then do <code>git submodule add</co
         Mail()
             .from("sender", "sender@example.com")
             .to("receiver", "receiver@example.com")
+            .replyTo("ninja master", "master@ninja.com")
             .withSubject("A subject")
             .withText("body")
             .withAttachments(Attachment("ninja code", attachment, "text/plain")
@@ -95,7 +96,7 @@ Checkout the project in modules/mail-plugin, then do <code>git submodule add</co
 <p>Mail class utilizes statically typed builder pattern, so <code>send()</code> method is not available before sender, receiver,
 subject and message body (either text or html) is set.</p>
 
-<p>You can check <a href="api/0.1/index.html">this plugin scaladoc</a> too.</p>
+<p>You can check <a href="api/0.2/index.html">this plugin scaladoc</a> too.</p>
 
 <h2>Configuration</h2>
 
@@ -110,6 +111,25 @@ subject and message body (either text or html) is set.</p>
     smtp.username=
     smtp.password=
 </code></pre>
+
+<h2>Changelog</h2>
+
+  <h3>version 0.2</h3>
+  <ul>
+    <li>Support for Reply-To header</li>
+  </ul>
+  <a href="api/0.2/index.html">scaladoc</a>
+
+  <h3>version 0.1</h3>
+  <ul>
+    <li>Initial release</li>
+    <li>SMTP_PLAIN authententication</li>
+    <li>FROM, TO, CC, BCC recipients fields supported</li>
+    <li>Multipart content with mixed text and html</li>
+    <li>Multiple attachments</li>
+  </ul>
+  <a href="api/0.1/index.html">scaladoc</a>
+
       </section>
       <footer>
         <p><small>Hosted on <a href="https://pages.github.com">GitHub Pages</a> using the Dinky theme</small></p>
