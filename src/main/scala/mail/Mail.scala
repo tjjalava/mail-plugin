@@ -4,6 +4,7 @@ import play.api.templates.Html
 import io.Source
 import javax.mail.Message.RecipientType
 import org.codemonkey.simplejavamail.Email
+import javax.mail.internet.MimeUtility
 
 /** Provides [[mail.Mail]] instance factory method, case classes and implicits needed to make it work */
 object Mail {
@@ -22,7 +23,9 @@ object Mail {
       }
       mail.text.map(e.setText(_))
       mail.html.map(h => e.setTextHTML(h.toString()))
-      mail.attachments.foreach(a => e.addAttachment(a.name, a.data.map(_.toByte).toArray, a.mimeType))
+      mail.attachments.foreach { a =>
+        e.addAttachment(MimeUtility.encodeText(a.name), a.data.map(_.toByte).toArray, a.mimeType)
+      }
       e
     }
   }
