@@ -15,7 +15,7 @@ To your `Build.scala` add:
         Resolver.url("mcveat.github.com", url("http://mcveat.github.com/releases"))(Resolver.ivyStylePatterns)
     )
 
-and `"play.modules.mail" %% "play2-mail-plugin" % "0.2"` as a dependency.
+and `"play.modules.mail" %% "play2-mail-plugin" % "0.2.1"` as a dependency.
 
 As a binary
 -----------
