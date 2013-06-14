@@ -1,7 +1,9 @@
-A Play 2.0 plugin providing a scala wrapper to simple-java-mail
+A Play 2.x plugin providing a scala wrapper to simple-java-mail
 ===============================================================
 
 Build status: [![Build Status](https://secure.travis-ci.org/mcveat/mail-plugin.png?branch=master)](https://travis-ci.org/mcveat/mail-plugin)
+
+[Scaladoc](http://mcveat.github.io/mail-plugin/api/0.2/index.html)
 
 Installation
 ============
@@ -77,4 +79,37 @@ In `application.conf` :
         smtp.username=
         smtp.password=
 
+Changelog
+=========
 
+version 0.3
+-----------
+
+* updated to Play Framework 2.1.1
+
+No API change
+
+version 0.2.1
+-------------
+
+* Bug fix: attachment name is encoded from now on
+
+No API change
+
+version 0.2
+-----------
+
+* Support for Reply-To header
+
+[scaladoc](http://mcveat.github.io/mail-plugin/api/0.2/index.html)
+
+version 0.1
+-----------
+
+* Initial release for Play Framework 2.0.3
+* SMTP_PLAIN authententication
+* FROM, TO, CC, BCC recipients fields supported
+* Multipart content with mixed text and html
+* Multiple attachments
+
+[scaladoc](http://mcveat.github.io/mail-plugin/api/0.1/index.html)
