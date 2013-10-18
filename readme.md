@@ -113,3 +113,5 @@ version 0.1
 * Multiple attachments
 
 [scaladoc](http://mcveat.github.io/mail-plugin/api/0.1/index.html)
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/mcveat/mail-plugin/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
