@@ -4,7 +4,7 @@ name := "play2-mail-plugin"
 
 organization := "play.modules.mail"
 
-version := "0.5-SNAPSHOT"
+version := "0.5-play-2.2-SNAPSHOT"
 
 resolvers ++= Seq(
     "Typesafe repository snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
