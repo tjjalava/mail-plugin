@@ -16,7 +16,7 @@ object MailActor {
   /** Creates mocked mailer actor ([[mail.MailActor.MailActorMock]]) */
   def startWithMock = Akka.system.actorOf(Props(new MailActorMock()), name = actorName)
   /** Looks up for mailer actor instance */
-  def get = Akka.system.actorFor("/user/%s".format(actorName))
+  def get = Akka.system.actorSelection("/user/%s".format(actorName))
 
   /** Sends email when receiving instance of Email.
     *
@@ -24,25 +24,22 @@ object MailActor {
     */
   class MailActor(mailer: Mailer) extends Actor {
     def receive = {
-      case email: Email => {
+      case email: Email =>
         try {
           mailer.sendMail(email)
           Logger.debug("MailPlugin: email sent")
         } catch {
-          case e:MailException => {
+          case e:MailException =>
             Logger.error("MailPlugin:"+e.getMessage)
-          }
         }
-      }
     }
   }
 
   /** Logs event of receiving Email instance as message. */
   class MailActorMock extends Actor {
     def receive = {
-      case email: Email => {
+      case email: Email =>
         Logger.debug("MailPlugin: email sent to mock")
-      }
     }
   }
 }

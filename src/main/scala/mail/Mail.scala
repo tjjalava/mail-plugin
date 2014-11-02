@@ -1,6 +1,6 @@
 package mail
 
-import play.api.templates.Html
+import play.twirl.api.Html
 import io.Source
 import javax.mail.Message.RecipientType
 import org.codemonkey.simplejavamail.Email
@@ -21,7 +21,7 @@ object Mail {
         case ReplyTo(name, address) => e.setReplyToAddress(name, address)
         case r: TypedRecipient => e.addRecipient(r.name, r.address, r.rType)
       }
-      mail.text.map(e.setText(_))
+      mail.text.map(e.setText)
       mail.html.map(h => e.setTextHTML(h.toString()))
       mail.attachments.foreach { a =>
         e.addAttachment(MimeUtility.encodeText(a.name), a.data.map(_.toByte).toArray, a.mimeType)
