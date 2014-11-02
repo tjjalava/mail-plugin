@@ -4,7 +4,7 @@ name := "play2-mail-plugin"
 
 organization := "play.modules.mail"
 
-version := "0.5"
+version := "0.6-SNAPSHOT"
 
 crossScalaVersions := Seq("2.10.4", "2.11.1")
 
