@@ -4,7 +4,7 @@ name := "play2-mail-plugin"
 
 organization := "play.modules.mail"
 
-version := "0.5"
+version := "0.5.1"
 
 crossScalaVersions := Seq("2.10.4", "2.11.1")
 
@@ -23,7 +23,8 @@ scalacOptions ++= Seq(
 )
 
 libraryDependencies ++= Seq(
-  "org.codemonkey.simplejavamail" % "simple-java-mail" % "2.1",
+  "org.codemonkey.simplejavamail" % "simple-java-mail" % "2.1" exclude("log4j", "log4j"),
+  "org.slf4j" % "log4j-over-slf4j" % "1.7.5",
   "com.typesafe.play" %% "play" % playVersion % "provided",
   "com.typesafe.play" %% "play-test" % playVersion % "test",
   "org.specs2" %% "specs2" % "2.3.13" % "test",
