@@ -1,14 +1,12 @@
-scalaVersion := "2.11.1"
+scalaVersion := "2.11.7"
 
 name := "play2-mail-plugin"
 
 organization := "play.modules.mail"
 
-version := "0.5.2-SNAPSHOT"
+version := "2.4.0-SNAPSHOT"
 
-crossScalaVersions := Seq("2.10.4", "2.11.1")
-
-lazy val playVersion = "2.3.6"
+lazy val playVersion = "2.4.3"
 
 resolvers ++= Seq(
     "Typesafe repository snapshots" at "http://repo.typesafe.com/typesafe/snapshots/",
@@ -27,6 +25,5 @@ libraryDependencies ++= Seq(
   "org.slf4j" % "log4j-over-slf4j" % "1.7.5",
   "com.typesafe.play" %% "play" % playVersion % "provided",
   "com.typesafe.play" %% "play-test" % playVersion % "test",
-  "org.specs2" %% "specs2" % "2.3.13" % "test",
-  "junit" % "junit" % "4.8" % "test"
+  "org.specs2" %% "specs2-core" % "3.6.4" % "test"
 )
